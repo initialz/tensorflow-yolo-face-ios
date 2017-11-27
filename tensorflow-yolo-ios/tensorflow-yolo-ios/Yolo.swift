@@ -52,7 +52,7 @@ class YOLO {
         clean()
         tfYolo = tfWrap()
         
-        tfYolo?.loadModel("tiny-yolo-voc.pb", labels: "voc.txt", memMapped: true, optEnv: true)
+        tfYolo?.loadModel("yolo-face_mm.pb", labels: "yolo-face.txt", memMapped: true, optEnv: true)
         coco = false
         v2 = false
         
@@ -84,7 +84,7 @@ class YOLO {
         var boxes = postProcessYolo(output: output)
         
         //suppress redundant boxes
-        boxes = suppressOverlappingYoloBoxes(boxes, classes: coco ? 80 : 20)
+        boxes = suppressOverlappingYoloBoxes(boxes, classes: coco ? 80 : 1)
         
         let labels = tfYolo.getLabels().flatMap{ $0 as? String }
         
@@ -138,10 +138,10 @@ class YOLO {
     
     func postProcessYoloV1(output: [Double]) -> [YoloBox] {
         
-        let S = 7
+        let S = 11
         let SS = S*S
         let B = coco ? 3 : 2
-        let C = coco ? 80 : 20
+        let C = coco ? 80 : 1
         
         let prob_size = SS*C
         let conf_size = SS*B
