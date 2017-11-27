@@ -41,3 +41,5 @@ git lfs clone https://github.com/KleinYuan/tensorflow-yolo-ios
 
 ## About this fork
 This fork is to make the project work on yolo-face model
+
+![](test.jpg)
