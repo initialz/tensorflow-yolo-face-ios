@@ -37,3 +37,7 @@ git lfs clone https://github.com/KleinYuan/tensorflow-yolo-ios
 
 3. A frozen tiny-yolo tensorflow model is provided by default, with VOC data trained. If you want to do an end-to-end (meaning, train yolo on darknet -> translate -> freeze model -> implement on iOS), you may need [this](https://github.com/thtrieu/darkflow)
 
+---------------------------------------
+
+## About this fork
+This fork is to make the project work on yolo-face model
